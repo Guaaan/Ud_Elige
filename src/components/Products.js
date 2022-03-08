@@ -7,7 +7,7 @@ export const Products = (props) => {
             <Card>
             <div class="row g-0">
                 <div class="col-md-4">
-                <Card.Img variant="bottom" src="https://picsum.photos/150/100" />
+                <Card.Img className="product-image" variant="bottom" src="https://picsum.photos/150/100" />
                 </div>
                 <div class="col-md-8">
                   <Card.Body class="card-body">

@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import NavBar from './components/NavBar';
@@ -11,14 +11,13 @@ function App() {
       <NavBar />
       <br />
       <div className='container'>
-        <Products nombre="abrilar jarabe para la tos" />
+        <Products  literal="a" nombre="abrilar jarabe para la tos" info="Esta es la información del producto debe mostrarse debajo de éste" tipo="Marca"/>
         <br />
-        <Products nombre="abrilar jarabe para la tos" />
+        <Products  literal="b" nombre="generico de abrilar" info="Esta es la información del producto debe mostrarse debajo de éste" tipo="Bioequivalente"/>
         <br />
-        <Products nombre="abrilar jarabe para la tos" />
-
-
+        <Products  literal="c" nombre="bioequivalente de abrilar " info="Esta es la información del producto debe mostrarse debajo de éste" tipo="Generico"/>
       </div>
+      
     </div>
   );
 }

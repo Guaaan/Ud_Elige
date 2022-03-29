@@ -38,12 +38,13 @@
 }
 
 .color-nav{
-  background-color: #aa1dd4;
+  background-color: #5C0C89;
 }
-.product-image{
-  width: 50px;
-  height: 145px;
-}
+ .product-image{
+  width: 25vh;
+  height: 25vh;
+  object-fit: contain;
+} 
 .price{ 
   /* bold */
   font-weight: bold;
@@ -53,6 +54,9 @@
 .left-text{
   text-align: left;
 }
+.right-text{
+  text-align: right;
+}
 .align-center {
   display: flex;
   align-items: center;
@@ -61,5 +65,23 @@
   text-align: center;
 }
 .purple-text{
-  color:#aa1dd4;
+  color:#5C0C89;
+}
+ol li {
+  color:#5C0C89;
+  font-weight: bold;
+}
+.bg-custom-button{
+  background-color: #1F2833;
+  border-color: #45A293;
+  border: 3px solid-transparent;
+  
+  border-radius: 100px;
+}
+.gray-text{
+  color: #868e96;
+}
+.disabled-price{
+  color: #868e96;
+  text-decoration: line-through;
 }

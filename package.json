@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "RedfarmaUdElige.FrontEnd",
   "main": "app.js",
+  "homepage": "https://app.redfarma.cl/ud-elige",
   "private": true,
   "dependencies": {
     "@microsoft/signalr": "5.0.15",

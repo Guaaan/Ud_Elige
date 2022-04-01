@@ -37,7 +37,6 @@ const OpcionA = () => {
 
   return (
     <div className="OpcionA">
-
       <br />
       <div className='container'>
         <ol type='A'>

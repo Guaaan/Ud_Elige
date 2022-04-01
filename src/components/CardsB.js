@@ -5,7 +5,7 @@ import '../App.css';
 
 
 export const CardsB = (props) => {
-    //console log props.literal on click event
+    
 
     const handleClick = () => {
         console.log(props.cod);
@@ -20,7 +20,7 @@ export const CardsB = (props) => {
     }
 
     function PrecioOferta(props) {
-
+        
         return (<>
             <Table >
                 <tbody>

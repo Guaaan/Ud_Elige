@@ -107,3 +107,8 @@ ol li {
 .title{
   height: 2em;
 }
+::marker {
+  font-size: 2em;
+  
+}
+

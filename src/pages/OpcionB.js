@@ -11,8 +11,6 @@ var instancia = new PantallaPos("https://api.redfarma.cl/ud-elige/v0.1/PantallaP
 //instancia.NotificarTriada(id, "090-0010");
 instancia.Start();
 
-instancia.NotificarTriada();
-
 const OpcionB = () => {
 
   const [products, setProducts] = useState([]);
@@ -39,11 +37,11 @@ const OpcionB = () => {
   return (
     
       <div className='container'>
-       
+    
         
         <div className="row justify-content-center">
           {products.map((product, index) => (
-            <div className="col-md-4 p-4" id={index} >
+            <div className="col p-4" id={index} >
               <CardsB key={product.precioOferta} 
               img={product.imagen}
               nombre={product.articuloNombre}
@@ -51,6 +49,7 @@ const OpcionB = () => {
               precio={product.precio}
               precioOferta={product.precioOferta}
               cantidadMinima={product.cantidadMinima}
+              cod={product.codigoInterno}
               literal={index}
               func={funcion}
               />

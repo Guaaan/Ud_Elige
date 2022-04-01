@@ -1,26 +1,29 @@
 //import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
-import NavBar from './components/NavBar';
+//import NavBar from './components/NavBar';
 //import Products from './components/Products';
 import PantallaPos from "./PantallaPos.js";
 //import CardsB from './components/CardsB';
 import OpcionA from './pages/OpcionA';
 import OpcionB from './pages/OpcionB';
+import { Navbar, Container, Nav,  } from 'react-bootstrap';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Link
 } from "react-router-dom";
 
 var instancia = new PantallaPos("https://api.redfarma.cl/ud-elige/v0.1/PantallaPos");
 
 instancia.Start();
 
-instancia.NotificarTriada();
 
 const App = () => {
 
+  //const rutaServidor = '/ud-elige'; //producción
+  const rutaServidor = '';            //desarrollo
   const [products, setProducts] = useState([]);
   const [transId, setTransId] = useState();
   const funcion = (articuloSeleccionado) => {
@@ -44,64 +47,35 @@ const App = () => {
 
   return (
     <div className="App">
-      <NavBar opcionA="opcion-a" opcionB="opcion-b"/>
+      <Router>
+        <Navbar className="color-nav" variant="dark">
+          <Container>
+            <Navbar.Brand to="/" href="#home">
+              <img src="https://www.redfarma.cl/img/sitio/logo.png" height="50px" alt="RedFarma Logo" />
+            </Navbar.Brand>
+            <Nav className="me-auto">
 
-      <br />
-      <div className='container'>
-        {/* <ol type='A'>
+              <Nav.Link to="opcion-a">Opción A</Nav.Link>
+              <Nav.Link to="opcion-b">Opción B</Nav.Link>
 
-          {products.map((product, index) => (
+            </Nav>
+          </Container>
+        </Navbar>
 
-            <li value={literalIncrement(index)}>
+        <br />
+        <div className='container'>
 
-              <Products key={product.codigoInterno}
-                // the literal is equal to the index of the array
 
-                nombre={product.articuloNombre}
-                info={product.laboratorioNombre}
-                precio={product.precio}
-                img={product.imagen}
-                cod={product.codigoInterno}
-                precioOferta={product.precioOferta}
-                cantidadMinima={product.cantidadMinima}
-                func={funcion}
-              />
-            </li>
 
-          ))}
-        </ol> */}
 
-        <div className="row">
-          {/* {products.map((product, index) => (
-            <div className="col-md-4" id={index} >
-              <CardsB key={product.precioOferta}
-                img={product.imagen}
-                nombre={product.articuloNombre}
-                info={product.laboratorioNombre}
-                precio={product.precio}
-                precioOferta={product.precioOferta}
-                cantidadMinima={product.cantidadMinima}
-                literal={index}
-                func={funcion}
-              />
-            </div>
 
-          ))} */}
-          <Router>
-
-            <Switch>
-
-              <Route path="/opcion-a">
-                <OpcionA />
-              </Route>
-              <Route path="/opcion-b">
-                <OpcionB />
-              </Route>
-            </Switch>
-          </Router>
+         
+			<Route path={rutaServidor+"/opcion-a"} component={OpcionA} exact />
+			<Route path={rutaServidor+"/opcion-b"} component={OpcionB} exact />
+         
 
         </div>
-      </div>
+      </Router>
     </div>
   );
 }

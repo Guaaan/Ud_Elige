@@ -4,16 +4,10 @@ import React, { useState } from 'react';
 //import NavBar from './components/NavBar';
 //import Products from './components/Products';
 import PantallaPos from "./PantallaPos.js";
-//import CardsB from './components/CardsB';
-import OpcionA from './pages/OpcionA';
-import OpcionB from './pages/OpcionB';
-import { Navbar, Container, Nav,  } from 'react-bootstrap';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import CardsB from './components/CardsB';
+import { Navbar, Container, Nav, Col, Carousel, } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 var instancia = new PantallaPos("https://api.redfarma.cl/ud-elige/v0.1/PantallaPos");
 
@@ -28,7 +22,6 @@ const App = () => {
   const [transId, setTransId] = useState();
   const funcion = (articuloSeleccionado) => {
     instancia.NotificarTriada(transId, articuloSeleccionado);
-    console.log(articuloSeleccionado);
   }
 
   instancia.OnMostrarTriada(function (id, triadas) {
@@ -43,39 +36,94 @@ const App = () => {
   //   return alphabet[numb];
   // }
 
+  const ShowAndHide = () => {
+    if (products.length === 0) {
+      return (
+        <Carousel variant="dark">
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="https://picsum.photos/800/400?random=1"
+              alt="First slide"
+            />
+            <Carousel.Caption>
+              <h5>First slide label</h5>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="https://picsum.photos/800/400?random=1"
+              alt="Second slide"
+            />
+            <Carousel.Caption>
+              <h5>Second slide label</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="https://picsum.photos/800/400?random=1"
+              alt="Third slide"
+            />
+            <Carousel.Caption>
+              <h5>Third slide label</h5>
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+      )
+    }
+    else {
+      return (
+        <div className="row justify-content-center">
+          {products.map((product, index) => (
+            // <div className="col-4 p-4" id={index} >
+            <Col>
+              <CardsB key={index}
+                img={product.imagen}
+                nombre={product.articuloNombre}
+                info={product.laboratorioNombre}
+                precio={product.precio}
+                precioOferta={product.precioOferta}
+                cantidadMinima={product.cantidadMinima}
+                cod={product.codigoInterno}
+                literal={index}
+                func={funcion}
+              />
+            </Col>
+            // </div>
+
+          ))}
+
+        </div>
+      )
+    }
+  }
 
 
   return (
     <div className="App">
-      <Router>
-        <Navbar className="color-nav" variant="dark">
-          <Container>
-            <Navbar.Brand to="/" href="#home">
-              <img src="https://www.redfarma.cl/img/sitio/logo.png" height="50px" alt="RedFarma Logo" />
-            </Navbar.Brand>
-            <Nav className="me-auto">
-
-              <Nav.Link to="opcion-a">Opción A</Nav.Link>
-              <Nav.Link to="opcion-b">Opción B</Nav.Link>
-
-            </Nav>
-          </Container>
-        </Navbar>
-
-        <br />
-        <div className='container'>
+      <Navbar className="color-nav" variant="dark">
+        <Container>
+          <Navbar.Brand to="/" href="#home">
+            <img src="https://www.redfarma.cl/img/sitio/logo.png" height="50px" alt="RedFarma Logo" />
+          </Navbar.Brand>
+          <Nav className="me-auto">
 
 
+          </Nav>
+        </Container>
+      </Navbar>
+      <br />
+      <div className='container'>
 
+        <ShowAndHide />
 
+      </div>
 
-         
-			<Route path={rutaServidor+"/opcion-a"} component={OpcionA} exact />
-			<Route path={rutaServidor+"/opcion-b"} component={OpcionB} exact />
-         
-
-        </div>
-      </Router>
     </div>
   );
 }

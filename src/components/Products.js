@@ -81,7 +81,7 @@ export const Products = (props) => {
                                 {/* <Col className="col-md-2 align-center text-center">
                                 <h2 className="p-2 purple-text">{literalIncrement(props.literal)})</h2>
                             </Col> */}
-                                <Col className="">
+                                <Col>
 
                                     <div>
                                         <Card.Img className="product-image " src={props.img} alt={props.cod} />

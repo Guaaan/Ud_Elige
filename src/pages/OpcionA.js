@@ -18,7 +18,6 @@ const OpcionA = () => {
   const [transId, setTransId] = useState();
   const funcion = (articuloSeleccionado) => {
     instancia.NotificarTriada(transId, articuloSeleccionado);
-    console.log(articuloSeleccionado);
   }
 
   instancia.OnMostrarTriada(function (id, triadas) {

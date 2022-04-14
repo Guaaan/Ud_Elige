@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #EBEBEB;
 }
 
 .App-logo {
@@ -13,6 +14,9 @@
   }
 }
 
+.gray-bg{
+  background-color: #EBEBEB;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -38,20 +42,39 @@
 }
 
 .color-nav{
-  background-color: #aa1dd4;
+  background-color: #5C0C89;
 }
 .product-image{
-  width: 50px;
-  height: 145px;
-}
+  width: 25vh;
+  height: 25vh;
+  object-fit: contain;
+} 
 .price{ 
   /* bold */
   font-weight: bold;
-  color: red;
+  color: #e10613;
   font-size: 20px;
+}
+.purple-text{
+  color:#5C0C89;
+}
+.title{
+  color: #5E2682;
+}
+.generico{
+  color: #1D7086;
+}
+.similar{
+  color: #F19000;
+}
+.marca{
+  color: #DC0D80;
 }
 .left-text{
   text-align: left;
+}
+.right-text{
+  text-align: right;
 }
 .align-center {
   display: flex;
@@ -60,6 +83,51 @@
 .text-center {
   text-align: center;
 }
-.purple-text{
-  color:#aa1dd4;
+
+
+ol li {
+  color:#5C0C89;
+  font-weight: bold;
 }
+
+.gray-text{
+  color: #868e96;
+}
+.disabled-price{
+  color: #868e96;
+  text-decoration: line-through;
+}
+.img-holder{
+  width: 100%;
+
+}
+.dark-text{
+  color: #363636;
+  font-weight: bold;
+}
+.custom-card{
+  border-radius: 25px;
+  border: 2px solid #898989;
+}
+.outter-borders{
+  border-radius: 15px;
+  border: 2px solid #5C0C89;
+  height: 100%;
+  /* width: 90%; */
+}
+.inner-borders{
+  border-radius: 10px;
+  /* solo el borde de la derecha */
+  /* border-right: 2px solid #5C0C89;
+  border-left: 2px solid #5C0C89; */
+  border-bottom: 2px solid #5C0C89;
+}
+.title{
+  height: 2em;
+}
+::marker {
+  font-size: 2em;
+  
+}
+
+

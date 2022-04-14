@@ -3,16 +3,21 @@
   "version": "0.0.0",
   "description": "RedfarmaUdElige.FrontEnd",
   "main": "app.js",
+  "homepage": "https://app.redfarma.cl/ud-elige",
   "private": true,
   "dependencies": {
     "@microsoft/signalr": "5.0.15",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.26.1",
     "bootstrap": "^5.1.3",
+    "cors": "^2.8.5",
     "react": "^17.0.2",
     "react-bootstrap": "^2.2.0",
     "react-dom": "^17.0.2",
+    "react-number-format": "^4.9.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "^2.1.3",
     "react-use-signalr": "^0.0.3",
     "reactstrap": "^9.0.1",
@@ -42,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "json-server": "^0.17.0"
   }
 }

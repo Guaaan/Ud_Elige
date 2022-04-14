@@ -1,13 +1,13 @@
-//import logo from './logo.svg';
 import './App.css';
 import React, { useEffect, useState } from 'react';
 //import NavBar from './components/NavBar';
 //import Products from './components/Products';
 import PantallaPos from "./PantallaPos.js";
-import CardsB from './components/CardsB';
-import { Navbar, Container, Nav, Col, Carousel, } from 'react-bootstrap';
+import Cards from './components/Cards';
+import { Col, Carousel, } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios";
+import Footer from './components/Footer';
 
 var instancia = new PantallaPos("https://api.redfarma.cl/ud-elige/v0.1/PantallaPos");
 
@@ -16,6 +16,7 @@ instancia.Start();
 
 const App = () => {
 
+  const tipos = ['Generico', 'Similar', 'Marca'];
   //const rutaServidor = '/ud-elige'; //producción
   //const rutaServidor = '';            //desarrollo
   const [products, setProducts] = useState([]);
@@ -74,17 +75,7 @@ const App = () => {
               </Carousel.Item>
             ))}
 
-            {/* <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src={'https://app.redfarma.cl/ud-elige/'+promos[0]}
-              alt="Third slide"
-            />
-            <Carousel.Caption>
-              <h5></h5>
-              <p></p>
-            </Carousel.Caption>
-          </Carousel.Item> */}
+
           </Carousel>
         )
       }
@@ -96,24 +87,17 @@ const App = () => {
     }
     else {
       return (<>
-        <Navbar className="color-nav" variant="dark">
-          <Container>
-            <Navbar.Brand to="/" href="#home">
-              <img src="https://www.redfarma.cl/img/sitio/logo.png" height="50px" alt="RedFarma Logo" />
-            </Navbar.Brand>
-            <Nav className="me-auto">
+        <div className="title">
 
-
-            </Nav>
-          </Container>
-        </Navbar>
+          <h1 >Por favor, elige tu alternativa:</h1>
+        </div>
         <div className='container'>
-          <br />
+          {/* <br /> */}
           <div className="row justify-content-center">
             {products.map((product, index) => (
               // <div className="col-4 p-4" id={index} >
               <Col>
-                <CardsB key={index}
+                <Cards key={index}
                   img={product.imagen}
                   nombre={product.articuloNombre}
                   info={product.laboratorioNombre}
@@ -123,6 +107,7 @@ const App = () => {
                   cod={product.codigoInterno}
                   literal={index}
                   func={funcion}
+                  tipo={tipos[index]}
                 />
               </Col>
               // </div>
@@ -131,6 +116,8 @@ const App = () => {
 
           </div>
         </div>
+        <Footer/>
+
       </>
       )
     }

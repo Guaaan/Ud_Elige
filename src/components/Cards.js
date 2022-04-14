@@ -4,7 +4,7 @@ import NumberFormat from 'react-number-format';
 import '../App.css';
 
 
-export const CardsB = (props) => {
+export const Cards = (props) => {
     
 
     const handleClick = () => {
@@ -116,15 +116,17 @@ export const CardsB = (props) => {
             <div className="outter-borders" onClick={handleClick}>
 
                 {/* <Card style={{ width: '25rem' }}> */}
-                <div className="inner-borders">
+                <div>
                     <Card.Title className="purple-text">
 
                         <strong>
                             <Container>
                                 <Row>
-                                    <Col className="left-text">{literalIncrement(props.literal)}</Col>
-                                    <Col>Generico</Col>
-                                    <Col></Col>
+                                    
+                                    {props.tipo === 'Generico' && (<span className="generico">{props.tipo}</span>)}
+                                    {props.tipo === 'Similar' && (<span className="similar">{props.tipo}</span>)}
+                                    {props.tipo === 'Marca' && (<span className="marca">{props.tipo}</span>)}
+                                    
 
                                 </Row>
                             </Container>
@@ -164,4 +166,4 @@ export const CardsB = (props) => {
     );
 };
 
-export default CardsB;
+export default Cards;

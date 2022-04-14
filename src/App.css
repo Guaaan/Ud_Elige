@@ -2,7 +2,12 @@
   text-align: center;
   background-color: #EBEBEB;
 }
-
+@font-face {
+  font-family: "TodaySHOP-Medium";
+  src: local("TodaySHOP-Medium"),
+   url("./fonts/TodaySHOP-Medium.otf") format("opentype");
+  /* font-weight: bold; */
+  }
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -45,8 +50,8 @@
   background-color: #5C0C89;
 }
 .product-image{
-  width: 25vh;
-  height: 25vh;
+  width: 20vh;
+  height: 20vh;
   object-fit: contain;
 } 
 .price{ 
@@ -54,22 +59,38 @@
   font-weight: bold;
   color: #e10613;
   font-size: 20px;
+  font-family: TodaySHOP-Medium;
 }
 .purple-text{
-  color:#5C0C89;
+  color:#5E2682;
+  font-family: TodaySHOP-Medium;
 }
 .title{
   color: #5E2682;
+  font-size: 79,31pt !important;
+  font-family: TodaySHOP-Medium;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 .generico{
   color: #1D7086;
+  font-family: TodaySHOP-Medium;
+  padding-top: 15px;
+  font-size: 79,31pt;
 }
 .similar{
   color: #F19000;
+  font-family: TodaySHOP-Medium;
+  padding-top: 15px;
+  font-size: 79,31pt;
 }
 .marca{
   color: #DC0D80;
+  font-family: TodaySHOP-Medium;
+  padding-top: 15px;
+  font-size: 79,31pt;
 }
+
 .left-text{
   text-align: left;
 }
@@ -86,7 +107,7 @@
 
 
 ol li {
-  color:#5C0C89;
+  color:#5E2682;
   font-weight: bold;
 }
 
@@ -111,8 +132,9 @@ ol li {
 }
 .outter-borders{
   border-radius: 15px;
-  border: 2px solid #5C0C89;
+  /* border: 2px solid #5C0C89; */
   height: 100%;
+  background-color: #FFFFFF;
   /* width: 90%; */
 }
 .inner-borders{
@@ -120,11 +142,11 @@ ol li {
   /* solo el borde de la derecha */
   /* border-right: 2px solid #5C0C89;
   border-left: 2px solid #5C0C89; */
-  border-bottom: 2px solid #5C0C89;
+  border-bottom: 2px solid #5E2682;
 }
-.title{
+/* .title{
   height: 2em;
-}
+} */
 ::marker {
   font-size: 2em;
   

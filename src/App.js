@@ -1,4 +1,3 @@
-import './App.css';
 import React, { useEffect, useState } from 'react';
 //import NavBar from './components/NavBar';
 //import Products from './components/Products';
@@ -8,6 +7,7 @@ import { Col, Carousel, } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios";
 import Footer from './components/Footer';
+import './App.css';
 
 var instancia = new PantallaPos("https://api.redfarma.cl/ud-elige/v0.1/PantallaPos");
 
@@ -93,13 +93,13 @@ const App = () => {
         </div>
         <div className='container'>
           {/* <br /> */}
-          <div className="row justify-content-center">
+          <div className="cards row justify-content-center">
             {products.map((product, index) => (
               // <div className="col-4 p-4" id={index} >
               <Col>
                 <Cards key={index}
                   img={product.imagen}
-                  nombre={product.articuloNombre}
+                  //nombre={product.articuloNombre}
                   info={product.laboratorioNombre}
                   precio={product.precio}
                   precioOferta={product.precioOferta}

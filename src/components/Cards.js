@@ -135,12 +135,13 @@ export const Cards = (props) => {
                 </div>
                 <Card.Img className="img-holder" variant="top" src={props.img} alt={props.cod} />
                 <Card.Body>
-                    <div className="left-text title">
+                    {/* <div className="left-text title">
 
                         <Card.Text>{props.info}
                             <h3 className="purple-text">{props.nombre}</h3>
                         </Card.Text>
-                    </div>
+                    </div> */}
+                    <Precios cantidadMinima={props.cantidadMinima} precioOferta={props.precioOferta} precio={props.precio} />
                 </Card.Body>
                 <br />
                 {/* <ListGroup className="list-group-flush">
@@ -152,7 +153,6 @@ export const Cards = (props) => {
                             <Col>
                             </Col>
                             <Col sm={7}>
-                                <Precios cantidadMinima={props.cantidadMinima} precioOferta={props.precioOferta} precio={props.precio} />
                             </Col>
                         </Row>
                     </Container>

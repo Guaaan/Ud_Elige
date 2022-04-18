@@ -22,47 +22,48 @@ export const Cards = (props) => {
     function PrecioOferta(props) {
 
         return (<>
-            <Table >
-                <tbody>
-                    <tr className="dark-text">
-                        <td>
-                            <strong>
 
-                                Oferta:
-                            </strong>
-                        </td>
-                        <td>
+            <Row>
 
-                            {props.cantidadMinima > 1 && (<>
+            </Row>
+            <span >
+                <strong className="dark-text">
 
-                                {props.cantidadMinima}X &nbsp;
-                                {props.cantidadMinima <= 1 && (<>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</>)}
+                    Oferta:&nbsp;&nbsp;
+                {props.cantidadMinima > 1 && (<>
+
+                    {props.cantidadMinima}X 
+                    {props.cantidadMinima <= 1 && (<></>)}
 
 
-                            </>)}
-
-                        </td>
-                        <td className="dark-text">
-                            <NumberFormat className="card-text price" value={props.precioOferta} displayType={'text'} thousandSeparator="." decimalSeparator="," prefix={'$'} />
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <strong>
-                            <td align="left">
+                </>)}
+                </strong>
+            </span>
+            
 
 
-                                Antes:
+            
+            <span >
+                <NumberFormat className="card-text price" value={props.precioOferta} displayType={'text'} thousandSeparator="." decimalSeparator="," prefix={'$'} />
+            </span>
 
-                            </td>
-                            <td className="disabled-price">
-                                <NumberFormat value={props.precio} displayType={'text'} thousandSeparator="." decimalSeparator="," prefix={'$'} />
-                            </td>
-                        </strong>
-                    </tr>
+            <Row>
+                <strong >
+                    
+                    <span className="dark-text">
 
-                </tbody>
-            </Table>
+                        Antes:&nbsp;&nbsp;&nbsp;&nbsp;
+                    </span>
+
+
+                    <span className="disabled-price">
+                        <NumberFormat value={props.precio} displayType={'text'} thousandSeparator="." decimalSeparator="," prefix={'$'} />
+                    </span>
+                </strong>
+
+            </Row>
+
+
 
             <Card.Text >
 
@@ -114,7 +115,7 @@ export const Cards = (props) => {
 
 
                                 </Row>
-                                
+
                             </Container>
                         </strong>
                     </Card.Title>
@@ -129,10 +130,10 @@ export const Cards = (props) => {
                     </div> */}
                     <Precios cantidadMinima={props.cantidadMinima} precioOferta={props.precioOferta} precio={props.precio} />
                 </Card.Body>
-               
+
                 {/* </Card> */}
             </div>
-                      
+
         </>
     );
 };

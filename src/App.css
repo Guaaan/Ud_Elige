@@ -139,6 +139,7 @@ ol li {
 .disabled-price{
   color: #868e96;
   text-decoration: line-through;
+  font-size: 2.2em;
 }
 .img-holder{
   width: 80%;
@@ -148,6 +149,9 @@ ol li {
 .dark-text{
   color: #363636;
   font-weight: bold;
+  font-family: TodaySHOP-Medium;
+  padding-right: 18px;
+  font-size: 1.8em;
 }
 .custom-card{
   border-radius: 25px;
@@ -157,7 +161,7 @@ ol li {
   border-radius: 25px;
   /* border: 2px solid #5C0C89; */
   height: 100%;
-  max-height: 100%;
+  max-height: 85%;
   background-color: #FFFFFF;
   display: inline-block;
   max-width: 100%;

@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background-color: #EBEBEB;
+  height: 100VH;
 }
 @font-face {
   font-family: "TodaySHOP-Medium";
@@ -12,9 +13,7 @@
   height: 40vmin;
   pointer-events: none;
 }
-body{
-  background-color: #EBEBEB;
-}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -61,7 +60,7 @@ body{
   /* bold */
   font-weight: bold;
   color: #e10613;
-  font-size: 3em;
+  font-size: 3.5em;
   font-family: TodaySHOP-Medium;
 }
 .purple-text{

@@ -14,6 +14,7 @@ var instancia = new PantallaPos("https://api.redfarma.cl/ud-elige/v0.1/PantallaP
 instancia.Start();
 
 
+
 const App = () => {
 
   const tipos = ['Generico', 'Similar', 'Marca'];
@@ -58,7 +59,8 @@ const App = () => {
       if (promos) {
         console.log('https://app.redfarma.cl/ud-elige/' + promos);
         return (
-          <Carousel variant="dark"
+          <Carousel variant="light"
+            className="carousel-size"
             autoPlay={true}
             interval={5000}
             controls={true}
@@ -97,7 +99,7 @@ const App = () => {
             {products.map((product, index) => (
           
               // <div className="col-4 p-4" id={index} >
-              <Col className="columna-cards">
+              <Col md lg="4" className="columna-cards">
                 <Cards key={index}
                   img={product.imagen}
                   //nombre={product.articuloNombre}

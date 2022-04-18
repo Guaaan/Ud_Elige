@@ -120,6 +120,12 @@
 }
 .footer{
   color: #EBEBEB;
+  position: fixed;
+  bottom: 12px; 
+  right: 0px;
+}
+.carousel-size{
+  height:100vh;
 }
 
 ol li {

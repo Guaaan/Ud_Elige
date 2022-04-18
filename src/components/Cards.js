@@ -5,7 +5,7 @@ import '../App.css';
 
 
 export const Cards = (props) => {
-    
+
 
     const handleClick = () => {
         console.log(props.cod);
@@ -20,7 +20,7 @@ export const Cards = (props) => {
     }
 
     function PrecioOferta(props) {
-        
+
         return (<>
             <Table >
                 <tbody>
@@ -32,15 +32,15 @@ export const Cards = (props) => {
                             </strong>
                         </td>
                         <td>
-                            
-                                {props.cantidadMinima > 1 && (<>
 
-                                    {props.cantidadMinima}X &nbsp;
-                                    {props.cantidadMinima <= 1 && (<>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</>)}
+                            {props.cantidadMinima > 1 && (<>
+
+                                {props.cantidadMinima}X &nbsp;
+                                {props.cantidadMinima <= 1 && (<>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</>)}
 
 
-                                </>)}
-                            
+                            </>)}
+
                         </td>
                         <td className="dark-text">
                             <NumberFormat className="card-text price" value={props.precioOferta} displayType={'text'} thousandSeparator="." decimalSeparator="," prefix={'$'} />
@@ -75,24 +75,9 @@ export const Cards = (props) => {
 
     function PrecioNormal(props) {
         return (<>
-            <Table>
-                <tbody>
-                    <tr>
 
-                        <td>
-                            <strong>
+            <NumberFormat className="price" value={props.precio} displayType={'text'} thousandSeparator="." decimalSeparator="," prefix={'$'} />
 
-                                Precio:&nbsp;&nbsp;&nbsp;
-                            </strong>
-                        </td>
-                        <td className="price">
-                            <NumberFormat value={props.precio} displayType={'text'} thousandSeparator="." decimalSeparator="," prefix={'$'} />
-
-                        </td>
-
-                    </tr>
-                </tbody>
-            </Table>
             <Card.Text className="card-text price">
             </Card.Text>
 
@@ -122,18 +107,18 @@ export const Cards = (props) => {
                         <strong>
                             <Container>
                                 <Row>
-                                    
+
                                     {props.tipo === 'Generico' && (<span className="generico">{props.tipo}</span>)}
                                     {props.tipo === 'Similar' && (<span className="similar">{props.tipo}</span>)}
                                     {props.tipo === 'Marca' && (<span className="marca">{props.tipo}</span>)}
-                                    
+
 
                                 </Row>
                             </Container>
                         </strong>
                     </Card.Title>
                 </div>
-                <Card.Img className="img-holder" variant="top" src={props.img} alt={props.cod} />
+                <img className="img-holder" variant="top" src={props.img} alt={props.cod} />
                 <Card.Body>
                     {/* <div className="left-text title">
 
@@ -143,22 +128,7 @@ export const Cards = (props) => {
                     </div> */}
                     <Precios cantidadMinima={props.cantidadMinima} precioOferta={props.precioOferta} precio={props.precio} />
                 </Card.Body>
-                <br />
-                {/* <ListGroup className="list-group-flush">
-                    <ListGroupItem>Cras justo odio</ListGroupItem>
-                </ListGroup> */}
-                <Card.Body >
-                    <Container>
-                        <Row>
-                            <Col>
-                            </Col>
-                            <Col sm={7}>
-                            </Col>
-                        </Row>
-                    </Container>
-
-
-                </Card.Body>
+               
                 {/* </Card> */}
             </div>
 

@@ -1,6 +1,6 @@
 import React from "react";
 import LogoRedfarma from '../img/LogoRedfarma-05.png'
-import { Container, Col, Row } from "react-bootstrap";
+import { Container} from "react-bootstrap";
 const Footer = () => {
 
     return (

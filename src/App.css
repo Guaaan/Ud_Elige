@@ -165,7 +165,7 @@ ol li {
   background-color: #FFFFFF;
   display: inline-block;
   max-width: 100%;
-  /* width: 90%; */
+  width: 90%;
 }
 .inner-borders{
   border-radius: 10px;

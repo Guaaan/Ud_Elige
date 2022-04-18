@@ -13,8 +13,6 @@ var instancia = new PantallaPos("https://api.redfarma.cl/ud-elige/v0.1/PantallaP
 
 instancia.Start();
 
-
-
 const App = () => {
 
   const tipos = ['Generico', 'Similar', 'Marca'];
@@ -55,7 +53,7 @@ const App = () => {
   // }
 
   const ShowAndHide = () => {
-    if (products.length != 0) {
+    if (products.length === 0) {
       if (promos) {
         console.log('https://app.redfarma.cl/ud-elige/' + promos);
         return (
@@ -96,46 +94,7 @@ const App = () => {
         <div className='container'>
           {/* <br /> */}
           <div className="cards row justify-content-center">
-          <Col md lg="4" className="columna-cards">
-                <Cards 
-                  img="https://www.redfarma.cl/api/v1.1/Articulo/166-0037/imagen"
-                  //nombre={product.articuloNombre}
-                  precio="2990"
-                  precioOferta="0"
-                  cantidadMinima="0"
-                  cod="122312312312"
-                  literal="1"
-                  func={funcion}
-                  tipo={tipos[0]}
-                />
-              </Col>
-          <Col md lg="4" className="columna-cards">
-                <Cards 
-                  img="https://www.redfarma.cl/api/v1.1/Articulo/166-0037/imagen"
-                  //nombre={product.articuloNombre}
-                  precio="2990"
-                  precioOferta="1990"
-                  cantidadMinima="2"
-                  cod="122312312312"
-                  literal="2"
-                  func={funcion}
-                  tipo={tipos[1]}
-                />
-              </Col>
-          <Col md lg="4" className="columna-cards">
-                <Cards 
-                  img="https://www.redfarma.cl/api/v1.1/Articulo/166-0037/imagen"
-                  //nombre={product.articuloNombre}
-                  precio="2990"
-                  precioOferta="1990"
-                  cantidadMinima="0"
-                  cod="122312312312"
-                  literal="3"
-                  func={funcion}
-                  tipo={tipos[2]}
-                />
-              </Col>
-            {/* {products.map((product, index) => (
+            {products.map((product, index) => (
           
               // <div className="col-4 p-4" id={index} >
               <Col md lg="4" className="columna-cards">
@@ -153,7 +112,7 @@ const App = () => {
                 />
               </Col>
               // </div>
-              ))} */}
+              ))}
 
           </div>
         </div>

@@ -87,16 +87,17 @@ const App = () => {
     }
     else {
       return (<>
-        <div className="title">
+        <div >
 
-          <h1 >Por favor, elige tu alternativa:</h1>
+          <h1 className="title">Por favor, elige tu alternativa:</h1>
         </div>
         <div className='container'>
           {/* <br /> */}
           <div className="cards row justify-content-center">
             {products.map((product, index) => (
+          
               // <div className="col-4 p-4" id={index} >
-              <Col>
+              <Col className="columna-cards">
                 <Cards key={index}
                   img={product.imagen}
                   //nombre={product.articuloNombre}
@@ -111,8 +112,7 @@ const App = () => {
                 />
               </Col>
               // </div>
-
-            ))}
+              ))}
 
           </div>
         </div>

@@ -114,6 +114,7 @@ export const Cards = (props) => {
 
 
                                 </Row>
+                                
                             </Container>
                         </strong>
                     </Card.Title>
@@ -131,7 +132,7 @@ export const Cards = (props) => {
                
                 {/* </Card> */}
             </div>
-
+                      
         </>
     );
 };

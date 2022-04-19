@@ -109,6 +109,7 @@ const App = () => {
                   literal={index}
                   func={funcion}
                   tipo={tipos[index]}
+                  bioequivalente={true}
                 />
               </Col>
               // </div>

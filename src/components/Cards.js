@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Row, Container } from "react-bootstrap";
 import NumberFormat from 'react-number-format';
+import Bioequivalente from '../img/Bioequivalente-04.png'
 import '../App.css';
 
 
@@ -121,15 +122,20 @@ export const Cards = (props) => {
                     </Card.Title>
                 </div>
                 <img className="img-holder" variant="top" src={props.img} alt={props.cod} />
-                <Card.Body>
+                {/* <Card.Body> */}
                     {/* <div className="left-text title">
 
                         <Card.Text>{props.info}
                             <h3 className="purple-text">{props.nombre}</h3>
                         </Card.Text>
                     </div> */}
+                    <div className="cuerpo-carta">
+
                     <Precios cantidadMinima={props.cantidadMinima} precioOferta={props.precioOferta} precio={props.precio} />
-                </Card.Body>
+                    {props.bioequivalente === true &&(<img className="bioequivalente" src={Bioequivalente} alt="imagen de bioequivalente" />)}
+                    </div>
+                    
+                {/* </Card.Body> */}
 
                 {/* </Card> */}
             </div>

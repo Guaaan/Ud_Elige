@@ -174,9 +174,10 @@ ol li {
   border-left: 2px solid #5C0C89; */
   border-bottom: 2px solid #5E2682;
 }
-/* .title{
-  height: 2em;
-} */
+.bioequivalente{
+  width: 100%;
+  height:100%;
+}
 ::marker {
   font-size: 2em;
   

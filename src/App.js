@@ -21,12 +21,15 @@ const App = () => {
   const [transId, setTransId] = useState();
   const [promos, setPromos] = useState([]);
 
-  //fetch an api 
-  // const promosUrl = 'https://api.redfarma.cl/ud-elige/v0.1/banner/56/CAJA66'
-  // axios.get(promosUrl)
-  // .then(response =>{
-  //   setPromos(response.data);
-  // })
+  const selectProduct = (product) => {
+    console.log(JSON.stringify(product));
+    setProducts([product]);
+
+  }
+  // const cancelTriada = () => {
+  //   setProducts([]);
+  // }
+
 
   useEffect(() => {
     const promosUrl = 'https://api.redfarma.cl/ud-elige/v0.1/banner/56/CAJA66'
@@ -46,14 +49,7 @@ const App = () => {
     return true;
   });
   
-
-  const selectTriada = (triada) =>{
-    // set the products to the clicked one
-    console.log("triada seleccionada: ");
-    
-  }
   
-
   const ShowAndHide = () => {
     if (products.length === 0) {
       if (promos) {
@@ -100,7 +96,7 @@ const App = () => {
           
               // <div className="col-4 p-4" id={index} >
               
-              <Col md lg="4" className="columna-cards">
+              <Col md lg="4" className="columna-cards" onClick={()=>{selectProduct(products[index])}}>
                 
                 
                 <Cards key={index}
@@ -115,7 +111,6 @@ const App = () => {
                   func={funcion}
                   tipo={product.tipo}
                   bioequivalente={true}
-                  onClick={selectTriada()}
                 />
               </Col>
               // </div>

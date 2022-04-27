@@ -8,19 +8,14 @@ import '../App.css';
 export const Cards = (props) => {
 
 
-    const handleClick = () => {
-        //console.log(props.cod);
-        //props.func(props.cod);
-        console.log(props)
-        return props
+    // const handleClick = () => {
+    //     //console.log(props.cod);
+    //     //props.func(props.cod);
+    //     console.log(props)
+    //     return props
 
-    };
+    // };
 
-    //props.literal increments by 1 foreach from a to z
-    // const literalIncrement = (numb) => {
-    //     const alphabet = ["A)", "B)", "C)", "D)", "E)", "F", "G", "H", "I", "J", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-    //     return alphabet[numb];
-    // }
 
     function PrecioOferta(props) {
 
@@ -102,7 +97,7 @@ export const Cards = (props) => {
 
     return (
         <>
-            <div className="outter-borders" onClick={handleClick}>
+            <div className="outter-borders" >
 
                 {/* <Card style={{ width: '25rem' }}> */}
                 <div>

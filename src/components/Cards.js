@@ -9,8 +9,10 @@ export const Cards = (props) => {
 
 
     const handleClick = () => {
-        console.log(props.cod);
-        props.func(props.cod);
+        //console.log(props.cod);
+        //props.func(props.cod);
+        console.log(props)
+        return props
 
     };
 
@@ -31,26 +33,26 @@ export const Cards = (props) => {
                 <strong className="dark-text">
 
                     Oferta:&nbsp;&nbsp;
-                {props.cantidadMinima > 1 && (<>
+                    {props.cantidadMinima > 1 && (<>
 
-                    {props.cantidadMinima}X 
-                    {props.cantidadMinima <= 1 && (<></>)}
+                        {props.cantidadMinima}X
+                        {props.cantidadMinima <= 1 && (<></>)}
 
 
-                </>)}
+                    </>)}
                 </strong>
             </span>
-            
 
 
-            
+
+
             <span >
                 <NumberFormat className="card-text price" value={props.precioOferta} displayType={'text'} thousandSeparator="." decimalSeparator="," prefix={'$'} />
             </span>
 
             <Row>
                 <strong >
-                    
+
                     <span className="dark-text">
 
                         Antes:&nbsp;&nbsp;&nbsp;&nbsp;
@@ -110,9 +112,9 @@ export const Cards = (props) => {
                             <Container>
                                 <Row>
 
-                                    {props.tipo === 'Generico' && (<span className="generico">{props.tipo}</span>)}
-                                    {props.tipo === 'Similar' && (<span className="similar">{props.tipo}</span>)}
-                                    {props.tipo === 'Marca' && (<span className="marca">{props.tipo}</span>)}
+                                    {props.tipo === 'G' && (<span className="generico">Generico</span>)}
+                                    {props.tipo === 'S' && (<span className="similar">Similar</span>)}
+                                    {props.tipo === 'M' && (<span className="marca">Marca</span>)}
 
 
                                 </Row>
@@ -121,20 +123,21 @@ export const Cards = (props) => {
                         </strong>
                     </Card.Title>
                 </div>
+
                 <img className="img-holder" variant="top" src={props.img} alt={props.cod} />
                 {/* <Card.Body> */}
-                    {/* <div className="left-text title">
+                {/* <div className="left-text title">
 
                         <Card.Text>{props.info}
                             <h3 className="purple-text">{props.nombre}</h3>
                         </Card.Text>
                     </div> */}
-                    <div className="cuerpo-carta">
+                <div className="cuerpo-carta">
 
                     <Precios cantidadMinima={props.cantidadMinima} precioOferta={props.precioOferta} precio={props.precio} />
-                    {props.bioequivalente === true &&(<img className="bioequivalente" src={Bioequivalente} alt="imagen de bioequivalente" />)}
-                    </div>
-                    
+                    {props.bioequivalente === true && (<img className="bioequivalente" src={Bioequivalente} alt="imagen de bioequivalente" />)}
+                </div>
+
                 {/* </Card.Body> */}
 
                 {/* </Card> */}

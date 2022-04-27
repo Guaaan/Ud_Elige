@@ -15,7 +15,6 @@ instancia.Start();
 
 const App = () => {
 
-  const tipos = ['Generico', 'Similar', 'Marca'];
   //const rutaServidor = '/ud-elige'; //producción
   //const rutaServidor = '';            //desarrollo
   const [products, setProducts] = useState([]);
@@ -32,11 +31,11 @@ const App = () => {
   useEffect(() => {
     const promosUrl = 'https://api.redfarma.cl/ud-elige/v0.1/banner/56/CAJA66'
     axios.get(promosUrl)
-      .then(response => {
-        setPromos(response.data);
-      })
+    .then(response => {
+      setPromos(response.data);
+    })
   }, []);
-
+  
   const funcion = (articuloSeleccionado) => {
     instancia.NotificarTriada(transId, articuloSeleccionado);
   }
@@ -46,11 +45,14 @@ const App = () => {
     setTransId(id);
     return true;
   });
+  
 
-  // const literalIncrement = (numb) => {
-  //   const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-  //   return alphabet[numb];
-  // }
+  const selectTriada = (triada) =>{
+    // set the products to the clicked one
+    console.log("triada seleccionada: ");
+    
+  }
+  
 
   const ShowAndHide = () => {
     if (products.length === 0) {
@@ -71,7 +73,7 @@ const App = () => {
                   className="d-block w-100"
                   src={'https://app.redfarma.cl/ud-elige/' + promos[index]}
                   alt="First slide"
-                />
+                  />
               </Carousel.Item>
             ))}
 
@@ -97,7 +99,10 @@ const App = () => {
             {products.map((product, index) => (
           
               // <div className="col-4 p-4" id={index} >
+              
               <Col md lg="4" className="columna-cards">
+                
+                
                 <Cards key={index}
                   img={product.imagen}
                   //nombre={product.articuloNombre}
@@ -108,8 +113,9 @@ const App = () => {
                   cod={product.codigoInterno}
                   literal={index}
                   func={funcion}
-                  tipo={tipos[index]}
+                  tipo={product.tipo}
                   bioequivalente={true}
+                  onClick={selectTriada()}
                 />
               </Col>
               // </div>

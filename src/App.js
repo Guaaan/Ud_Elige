@@ -15,6 +15,7 @@ instancia.Start();
 
 const App = () => {
 
+  const booleanos = [false, true, true]
   //const rutaServidor = '/ud-elige'; //producción
   //const rutaServidor = '';            //desarrollo
   const [products, setProducts] = useState([]);
@@ -111,6 +112,7 @@ const App = () => {
                   func={funcion}
                   tipo={product.tipo}
                   bioequivalente={true}
+                  tieneImagen={booleanos[index]}
                 />
               </Col>
               // </div>

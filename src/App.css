@@ -146,6 +146,11 @@ ol li {
   height: 40%;
   object-fit: cover;
 }
+.no-img{
+  width: 80%;
+  height: 40%;
+  object-fit: contain;
+}
 .dark-text{
   color: #363636;
   font-weight: bold;

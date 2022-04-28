@@ -3,6 +3,8 @@ import { Card, Row, Container } from "react-bootstrap";
 import NumberFormat from 'react-number-format';
 import Bioequivalente from '../img/Bioequivalente-04.png'
 import '../App.css';
+import Placeholder from '../img/placeholder.png'
+
 
 
 export const Cards = (props) => {
@@ -118,8 +120,9 @@ export const Cards = (props) => {
                         </strong>
                     </Card.Title>
                 </div>
-
-                <img className="img-holder" variant="top" src={props.img} alt={props.cod} />
+                {props.tieneImagen === false && (<img className="no-img" variant="top" src={Placeholder} alt={props.cod} />)}
+                {props.tieneImagen === true && (<img className="img-holder" variant="top" src={props.img} alt={props.cod} />)}
+                    
                 {/* <Card.Body> */}
                 {/* <div className="left-text title">
 

@@ -1,6 +1,6 @@
 <script>
   import { routeToPage } from "$lib/routeToPage.js";
-  import Modal,{getModal} from '../lib/Modal.svelte';
+  import Modal, { getModal } from "../lib/Modal.svelte";
   import Index from "./index.svelte";
 
   let locales = [
@@ -34,160 +34,222 @@
     },
   ];
 
-  let name = 'world';
-	
-	let selection
-	
-	// Callback function provided to the `open` function, it receives the value given to the `close` function call, or `undefined` if the Modal was closed with escape or clicking the X, etc.
-	function setSelection(res){
-		selection=res
-	}
+  let requestOptions = {
+  method: 'GET',
+};
+let perfil = async () =>{
+
+  let response = await fetch("https://api.cdr.cl/b2b/dev/Cliente/2950969/Cuenta", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+  console.log(response);
+}
+perfil();
+  let selection;
+  // Callback function provided to the `open` function, it receives the value given to the `close` function call, or `undefined` if the Modal was closed with escape or clicking the X, etc.
+  function setSelection(res) {
+    selection = res;
+  }
 </script>
 
 <!-- the modal without an `id` -->
 <Modal>
-	<h1>Registrar un nuevo local {name}!</h1>
-	<!-- opening a model with an `id` and specifying a callback	 -->
-	<button on:click={()=>getModal('second').open(setSelection)}>
-		Open Nested Popup
-	</button>
-	{#if selection}
-	<p>
-		Your selection was: {selection}
-	</p>
-	{/if}
+  <h1>Registro Nuevo Local</h1>
+
+  <div class="container">
+    <form action="/action_page.php">
+      <label for="regiones">Región:</label>
+      <select name="regiones" id="cars">
+        <option value="volvo">Metropolitana</option>
+        <option value="saab">Valparaiso</option>
+        <option value="opel">Concepción</option>
+        <option value="audi">otra región</option>
+      </select>
+      <br /><br />
+      <label for="ciudades">Ciudad:</label>
+      <select name="ciudades" id="cars">
+        <option value="volvo">santiago </option>
+        <option value="saab">Valparaiso</option>
+        <option value="opel">Concepción</option>
+        <option value="audi">otra Ciudad</option>
+      </select>
+      <br /><br />
+      <label for="direccion">Dirección:</label>
+      <input type="text" name="direccion" />
+      <br /><br />
+      <label for="res-sanitaria">Res. Sanitaria:</label>
+      <input type="text" name="res-sanitaria" />
+      <!-- anchor to open a file -->
+      <a href="/account"><i class="fas fa-upload" /></a>
+    </form>
+  </div>
+  <br /><br />
+  <!-- opening a model with an `id` and specifying a callback	 -->
+  <button
+    class="red-button"
+    on:click={() => getModal("second").open(setSelection)}
+  >
+    Guardar
+  </button>
+  {#if selection}
+    <p>
+      Your selection was: {selection}
+    </p>
+  {/if}
 </Modal>
 
 <Modal id="second">
-	Inner window
-	<!-- Passing a value back to the callback function	 -->
-	<button class="green" on:click={()=>getModal('second').close(1)}>
-		Select 1
-	</button>
-	<button class="green" on:click={()=>getModal('second').close(2)}>
-		Select 2
-	</button>
-	
+  <!-- Inner window -->
+  <!-- Passing a value back to the callback function	 -->
+  <button class="green" on:click={() => getModal("second").close(1)}>
+    Select 1
+  </button>
+  <button class="green" on:click={() => getModal("second").close(2)}>
+    Select 2
+  </button>
 </Modal>
 <div class="container">
   <div class="row">
-    <div class="col-4 align-center">
+    <div class="col-md-4 col-xs-5 align-center">
       <img class="profile-pic" src="/img/profile-holder.png" alt="aaaaa" />
       <h2>Mi cuenta</h2>
     </div>
   </div>
   <br />
   <br />
-  <div class="row align-center ">
-    <div class="col-3">
-      <p class="subtitle">Razón Social:</p>
+  <form action="cuenta">
+    <div class="row align-center ">
+      <div class="col-md-3 col-xs-4">
+        <label class="subtitle" for="razon-social">Razón Social:</label>
+      </div>
+      <div class="col-7">
+        <input
+          class="long-input"
+          name="razon-social"
+          type="text"
+          placeholder="Juan"
+          disabled
+        />
+      </div>
     </div>
-    <div class="col-7">
-      <input class="long-input" type="text" placeholder="Juan" disabled />
+    <br />
+    <div class="row align-center ">
+      <div class="col-3">
+        <label class="subtitle" for="nombre-fantasia">Nombre Fantasía:</label>
+      </div>
+      <div class="col-7">
+        <input
+          name="nombre-fantasia"
+          class="long-input"
+          type="text"
+          placeholder="Juan"
+          disabled
+        />
+      </div>
     </div>
-  </div>
-  <br />
-  <div class="row align-center ">
-    <div class="col-3">
-      <p class="subtitle">Nombre Fantasía:</p>
+    <br />
+    <div class="row align-center ">
+      <div class="col-3">
+        <label class="subtitle" for="rut">Rut:</label>
+      </div>
+      <div class="col-7">
+        <input
+          class="long-input"
+          type="text"
+          placeholder="26.806112-4"
+          name="rut"
+          disabled
+        />
+      </div>
     </div>
-    <div class="col-7">
-      <input class="long-input" type="text" placeholder="Juan" disabled />
+    <br />
+    <div class="row align-center ">
+      <div class="col-3">
+        <label class="subtitle" for="telefonos">Teléfonos:</label>
+      </div>
+      <div class="col-3">
+        <input
+          class="long-input"
+          type="text"
+          placeholder="+56 9 47823445"
+          name="telefonos"
+          disabled
+        />
+      </div>
+      <div class="col-3">
+        <input
+          class="long-input"
+          type="text"
+          placeholder="+56 9 47823445"
+          name="telefonos"
+          disabled
+        />
+      </div>
     </div>
-  </div>
-  <br />
-  <div class="row align-center ">
-    <div class="col-3">
-      <p class="subtitle">Rut:</p>
+    <br />
+    <div class="row align-center ">
+      <div class="col-md-3 col-xs-12">
+        <label class="subtitle" for="correos">Correos:</label>
+      </div>
+      <div class="col-md-3 col-xs-12">
+        <input
+          class="long-input"
+          type="text"
+          placeholder="juan.john@gmail.com"
+          name="correos"
+          disabled
+        />
+      </div>
+      <div class="col-md-3 col-xs-12">
+        <input
+          class="long-input"
+          type="text"
+          placeholder="juan.john@gmail.com"
+          name="correos"
+          disabled
+        />
+      </div>
     </div>
-    <div class="col-7">
-      <input
-        class="long-input"
-        type="text"
-        placeholder="26.806112-4"
-        disabled
-      />
-    </div>
-  </div>
-  <br />
-  <div class="row align-center ">
-    <div class="col-3">
-      <p class="subtitle">Teléfonos:</p>
-    </div>
-    <div class="col-3">
-      <input
-        class="long-input"
-        type="text"
-        placeholder="+56 9 47823445"
-        disabled
-      />
-    </div>
-    <div class="col-3">
-      <input
-        class="long-input"
-        type="text"
-        placeholder="+56 9 47823445"
-        disabled
-      />
-    </div>
-  </div>
-  <br />
-  <div class="row align-center ">
-    <div class="col-3">
-      <p class="subtitle">Correos:</p>
-    </div>
-    <div class="col-3">
-      <input
-        class="long-input"
-        type="text"
-        placeholder="juan.john@gmail.com"
-        disabled
-      />
-    </div>
-    <div class="col-3">
-      <input
-        class="long-input"
-        type="text"
-        placeholder="juan.john@gmail.com"
-        disabled
-      />
-    </div>
-  </div>
+  </form>
   <br />
   <div class="row locales-tbl">
-    <h2>Locales</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Sucursal</th>
-          <th>Dirección</th>
-          <th>Región</th>
-          <th>Ciudad</th>
-          <th>Resoluciones</th>
-          <th>Ver</th>
-        </tr>
-      </thead>
-      <tbody>
-        {#each locales as local, i}
+    <div class="col-md-6 col-xs-12">
+      <h2>Locales</h2>
+      <table>
+        <thead>
           <tr>
-            <td>{local.sucursal}</td>
-            <td>{local.dirección}</td>
-            <td>{local.región}</td>
-            <td>{local.ciudad}</td>
-            <td>{local.resoluciones}</td>
-            <td><a href="/local">{i}</a></td>
+            <th>Sucursal</th>
+            <th>Dirección</th>
+            <th>Región</th>
+            <th>Ciudad</th>
+            <th>Resoluciones</th>
+            <th>Ver</th>
           </tr>
-        {/each}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {#each locales as local, i}
+            <tr>
+              <td>{i}</td>
+              <td>{local.dirección}</td>
+              <td>{local.región}</td>
+              <td>{local.ciudad}</td>
+              <td>{local.resoluciones}</td>
+              <td><a href="/local">ver</a></td>
+            </tr>
+          {/each}
+        </tbody>
+      </table>
+    </div>
     <br />
 
     <div class="align-center botonera">
       <button class="red-button">
-        <!-- No logro mostrar el floppy disk -->
         <i class="fas fa-save" /> Guardar
+      </button>&nbsp;&nbsp;
+      <button on:click={() => getModal().open()} class="red-button">
+        Registrar nuevo local
       </button>
-      <button on:click={()=>getModal().open()} class="red-button"> Registrar nuevo local </button>
     </div>
   </div>
   <br />
@@ -200,37 +262,31 @@
   </div>
   <div class="password-container">
     <div class="row align-center ">
-      <div class="col-3">
-        <p class="label">Teléfonos:</p>
-      </div>
-      <div class="col-3">
-        <input
-          class="long-input"
-          type="password"
-          placeholder="+56 9 47823445"
-        />
-      </div>
-      <div class="col-3">
-        <p class="label">Teléfonos:</p>
-      </div>
-      <div class="col-3">
-        <input class="password" type="text" placeholder="+56 9 47823445" />
-      </div>
-      <div class="row align-center ">
-        <div class="col-1"></div>
-        <div class="col-3">
-
-          <button class="red-button">
-            <!-- No logro mostrar el floppy disk -->
-            <i class="fas fa-save" /> actualizar
-          </button>
+      <form action="change-password">
+        <div class="row">
+          <div class="col-1" />
+          <div class="col-5">
+            <label for="nueva">Nueva Contraseña:</label>
+            <input type="text" name="nueva" />
+          </div>
+          <div class="col-6">
+            <label for="confirma">Confirma Contraseña:</label>
+            <input type="text" name="confirma" />
+          </div>
         </div>
-      </div>
+        <div class="row align-center ">
+          <div class="col-1" />
+          <div class="col-3">
+            <button class="red-button">
+              <i class="fas fa-save" /> actualizar
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 
-  
-
+  <br />
 </div>
 
 <style>
@@ -244,6 +300,7 @@
   table {
     border-collapse: collapse;
     width: 100%;
+    overflow-x:auto;
   }
 
   th,
@@ -258,14 +315,16 @@
     padding-top: 25px;
   }
   .subtitle {
-    margin: 0px;
+    margin: auto;
     font-size: 1.4em;
     position: relative;
-    top: 50%;
-    left: 50%;
+    /* top: 50%;
+    left: 50%; */
+    text-align: center;
   }
   .long-input {
     width: 100%;
+    margin: 10px;
   }
   .profile-pic {
     width: 3.5em;
@@ -279,26 +338,24 @@
     align-items: center;
   }
   .locales-tbl {
-    width: 50%;
+    /* width: 50%; */
 
     margin: auto;
   }
   .red-button {
-    width: 80%;
+    /* width: 80%; */
     height: 40px;
     cursor: pointer;
     font-size: 16px;
+    font-family: "Lato", sans-serif;
     font-weight: 600;
-    color: #ffffff;
-    border: 3px solid #020202;
-    background-color: #be0004;
+    color: #202020;
     display: block;
     -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
     box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-    /* border-radius: 12px; */
-    margin-right: 20px;
-    margin-left: 20px;
+    border-radius: 12px;
   }
+
   .botonera {
     padding: 10px;
   }
@@ -323,6 +380,5 @@
     margin-bottom: 20px;
     margin-top: 10px;
     padding: 20px;
-
   }
 </style>
